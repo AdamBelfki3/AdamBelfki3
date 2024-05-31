@@ -1,4 +1,18 @@
-## Hi there 👋
+## Hi - I'm Adam! 👋
+
+Welcome to my github! Here's a little bit about me:
+
+- 💻 I'm a software engineer with experience building distributed systems & deep neural models. 
+- 🤖 I'm building a robotics integration platform to simulate, test, & deploy multi-agent systems.
+- 🎯 I want to contribute to the development of safe & reliable AI.
+- 🔬 I want to conduct research in mechanistic interpretability & robustness.
+- 🌱 I'm interested in AI, Robotics, & Blockchain.
+- ⚽️ I enjoy football, pool, & skiing.
+- 🗣 I'm fluent in Arabic, English, & French.
+- 📫 Connect with me on LinkedIn or shoot me an email.
+
+
+  Let's chat!
 
 <!--
 **AdamBelfki3/AdamBelfki3** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
@@ -10,7 +24,7 @@ Here are some ideas to get you started:
 - 👯 I’m looking to collaborate on ...
 - 🤔 I’m looking for help with ...
 - 💬 Ask me about ...
-- 📫 How to reach me: ...
+- 📫 Connect with me on LinkedIn
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
