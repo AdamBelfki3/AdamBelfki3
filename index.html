@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adam Belfki</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0b;
+            --bg-secondary: #111113;
+            --text-primary: #f0ede6;
+            --text-secondary: #8a8a8a;
+            --accent: #e85d04;
+            --accent-glow: rgba(232, 93, 4, 0.15);
+            --border: #222225;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Geometric background pattern */
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.03;
+            background-image: 
+                linear-gradient(var(--text-primary) 1px, transparent 1px),
+                linear-gradient(90deg, var(--text-primary) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 0;
+            background: rgba(10, 10, 11, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 6rem;
+            position: relative;
+        }
+
+        .hero-content {
+            animation: fadeSlideUp 1s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .greeting {
+            font-size: 0.9rem;
+            color: var(--accent);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 400;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+        }
+
+        h1 span {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .hero-description {
+            max-width: 600px;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .tag {
+            padding: 0.5rem 1rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 2rem;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 8rem 0;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            color: var(--accent);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-label::before {
+            content: '';
+            width: 30px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        h2 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .about-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .highlight {
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border-left: 2px solid var(--accent);
+        }
+
+        .highlight-title {
+            font-size: 0.8rem;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-value {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.3rem;
+        }
+
+        /* Publications Section */
+        .publications-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .publication {
+            padding: 2rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .publication::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 0;
+            background: var(--accent);
+            transition: height 0.4s ease;
+        }
+
+        .publication:hover::before {
+            height: 100%;
+        }
+
+        .publication:hover {
+            border-color: var(--accent);
+            transform: translateX(10px);
+        }
+
+        .pub-year {
+            font-size: 0.75rem;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            margin-bottom: 0.75rem;
+        }
+
+        .pub-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .pub-venue {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .pub-authors {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            font-weight: 300;
+        }
+
+        .pub-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            transition: gap 0.3s ease;
+        }
+
+        .pub-link:hover {
+            gap: 0.8rem;
+        }
+
+        /* Research Interests */
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .interest-card {
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, transparent 100%);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .interest-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .interest-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .interest-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .interest-desc {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 300;
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+            padding: 10rem 0;
+        }
+
+        .contact h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-text {
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto 3rem;
+            font-weight: 300;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            border-color: var(--accent);
+            background: var(--accent-glow);
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .footer-text {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+
+        .languages {
+            margin-top: 1rem;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .interests-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-pattern"></div>
+
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">AB</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <p class="greeting">Hello, I'm</p>
+                    <h1>Adam <span>Belfki</span></h1>
+                    <p class="hero-description">
+                        Software engineer building distributed systems & deep neural models. 
+                        Passionate about developing safe, reliable AI through mechanistic 
+                        interpretability research.
+                    </p>
+                    <div class="hero-tags">
+                        <span class="tag">AI Safety</span>
+                        <span class="tag">Mechanistic Interpretability</span>
+                        <span class="tag">Distributed Systems</span>
+                        <span class="tag">Robotics</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="fade-in">
+            <div class="container">
+                <p class="section-label">About</p>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>Building the future of AI, <em>responsibly.</em></h2>
+                        <p>
+                            I'm a software engineer with deep experience in distributed systems 
+                            and neural network architectures. Currently, I'm building a robotics 
+                            integration platform to simulate, test, and deploy multi-agent systems.
+                        </p>
+                        <p>
+                            My research interests lie at the intersection of AI safety and 
+                            interpretability—understanding how neural networks work internally 
+                            to ensure they behave reliably and align with human values.
+                        </p>
+                    </div>
+                    <div class="about-highlights">
+                        <div class="highlight">
+                            <p class="highlight-title">Current Focus</p>
+                            <p class="highlight-value">Robotics & Multi-Agent Systems</p>
+                        </div>
+                        <div class="highlight">
+                            <p class="highlight-title">Research</p>
+                            <p class="highlight-value">Mechanistic Interpretability</p>
+                        </div>
+                        <div class="highlight">
+                            <p class="highlight-title">Languages</p>
+                            <p class="highlight-value">Arabic • English • French</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="publications" class="fade-in">
+            <div class="container">
+                <p class="section-label">Publications</p>
+                <h2>Selected Work</h2>
+                <div class="publications-grid">
+                    <article class="publication">
+                        <p class="pub-year">2024</p>
+                        <h3 class="pub-title">Your Publication Title Here</h3>
+                        <p class="pub-venue">Conference / Journal Name</p>
+                        <p class="pub-authors">Adam Belfki, Collaborator Names</p>
+                        <a href="#" class="pub-link">
+                            Read paper →
+                        </a>
+                    </article>
+                    <article class="publication">
+                        <p class="pub-year">2024</p>
+                        <h3 class="pub-title">Another Research Paper</h3>
+                        <p class="pub-venue">Workshop / Preprint</p>
+                        <p class="pub-authors">Adam Belfki, et al.</p>
+                        <a href="#" class="pub-link">
+                            Read paper →
+                        </a>
+                    </article>
+                    <!-- Add more publications as needed -->
+                </div>
+            </div>
+        </section>
+
+        <section id="research" class="fade-in">
+            <div class="container">
+                <p class="section-label">Research Interests</p>
+                <h2>What I'm exploring</h2>
+                <div class="interests-grid">
+                    <div class="interest-card">
+                        <div class="interest-icon">🔬</div>
+                        <h3 class="interest-title">Mechanistic Interpretability</h3>
+                        <p class="interest-desc">
+                            Reverse-engineering neural networks to understand the algorithms 
+                            and representations they learn internally.
+                        </p>
+                    </div>
+                    <div class="interest-card">
+                        <div class="interest-icon">🛡️</div>
+                        <h3 class="interest-title">AI Safety & Robustness</h3>
+                        <p class="interest-desc">
+                            Developing methods to ensure AI systems are reliable, 
+                            predictable, and aligned with human intentions.
+                        </p>
+                    </div>
+                    <div class="interest-card">
+                        <div class="interest-icon">🤖</div>
+                        <h3 class="interest-title">Multi-Agent Robotics</h3>
+                        <p class="interest-desc">
+                            Building platforms for simulating, testing, and deploying 
+                            coordinated robotic systems.
+                        </p>
+                    </div>
+                    <div class="interest-card">
+                        <div class="interest-icon">⚡</div>
+                        <h3 class="interest-title">Distributed Systems</h3>
+                        <p class="interest-desc">
+                            Architecting scalable, fault-tolerant infrastructure 
+                            for large-scale AI and data processing.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact fade-in">
+            <div class="container">
+                <p class="section-label">Get in Touch</p>
+                <h2>Let's <em>chat</em></h2>
+                <p class="contact-text">
+                    I'm always interested in discussing research, collaborations, 
+                    or just connecting with like-minded people.
+                </p>
+                <div class="contact-links">
+                    <a href="https://github.com/AdamBelfki3" class="contact-link">
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://linkedin.com/in/adambelfki" class="contact-link">
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="mailto:your@email.com" class="contact-link">
+                        <span>Email</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="footer-text">© 2024 Adam Belfki</p>
+            <p class="languages">⚽ Football • 🎱 Pool • 🎿 Skiing</p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll-based fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+
