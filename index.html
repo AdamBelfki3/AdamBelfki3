@@ -111,9 +111,39 @@
             position: relative;
         }
 
+        .hero-layout {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+        }
+
         .hero-content {
             animation: fadeSlideUp 1s ease forwards;
             opacity: 0;
+            flex: 1;
+        }
+
+        .hero-image {
+            flex-shrink: 0;
+            animation: fadeSlideUp 1s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        .hero-image img {
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--border);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s ease;
+        }
+
+        .hero-image img:hover {
+            border-color: var(--accent);
+            transform: scale(1.02);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.2);
         }
 
         @keyframes fadeSlideUp {
@@ -176,6 +206,24 @@
             border-color: var(--accent);
             color: var(--accent);
             box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .hero-socials {
+            display: flex;
+            gap: 1.25rem;
+            margin-top: 2.5rem;
+        }
+
+        .hero-social {
+            font-size: 1.5rem;
+            text-decoration: none;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .hero-social:hover {
+            opacity: 1;
+            transform: translateY(-3px);
         }
 
         /* Section Styles */
@@ -425,6 +473,25 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .hero-layout {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 2.5rem;
+            }
+
+            .hero-image img {
+                width: 200px;
+                height: 200px;
+            }
+
+            .hero-tags {
+                justify-content: center;
+            }
+
+            .hero-socials {
+                justify-content: center;
+            }
+
             .about-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -475,19 +542,28 @@
     <main>
         <section class="hero">
             <div class="container">
-                <div class="hero-content">
-                    <p class="greeting">Hello, I'm</p>
-                    <h1>Adam <span>Belfki</span></h1>
-                    <p class="hero-description">
-                        Software engineer building distributed systems & deep neural models. 
-                        Passionate about developing safe, reliable AI through mechanistic 
-                        interpretability research.
-                    </p>
-                    <div class="hero-tags">
-                        <span class="tag">AI Safety</span>
-                        <span class="tag">Mechanistic Interpretability</span>
-                        <span class="tag">Distributed Systems</span>
-                        <span class="tag">Robotics</span>
+                <div class="hero-layout">
+                    <div class="hero-content">
+                        <p class="greeting">Hello, I'm</p>
+                        <h1>Adam <span>Belfki</span></h1>
+                        <p class="hero-description">
+                            I'm currently building infrastructure for studying the internal mechanisms of large AI models at NDIF and doing AI interpretability research at Baulab.
+                        </p>
+                        <div class="hero-tags">
+                            <span class="tag">AI Safety</span>
+                            <span class="tag">Mechanistic Interpretability</span>
+                            <span class="tag">Distributed Systems</span>
+                            <span class="tag">Robotics</span>
+                        </div>
+                        <div class="hero-socials">
+                            <a href="https://github.com/AdamBelfki3" class="hero-social" target="_blank" title="GitHub">🐙</a>
+                            <a href="https://linkedin.com/in/adambelfki" class="hero-social" target="_blank" title="LinkedIn">💼</a>
+                            <a href="https://x.com/placeholder" class="hero-social" target="_blank" title="X">𝕏</a>
+                            <a href="https://scholar.google.com/citations?user=DSn_WtoAAAAJ" class="hero-social" target="_blank" title="Google Scholar">🎓</a>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <img src="IMG_0376.png" alt="Adam Belfki">
                     </div>
                 </div>
             </div>
@@ -632,14 +708,17 @@
                     or just connecting with like-minded people.
                 </p>
                 <div class="contact-links">
-                    <a href="https://github.com/AdamBelfki3" class="contact-link">
-                        <span>GitHub</span>
+                    <a href="https://github.com/AdamBelfki3" class="contact-link" target="_blank">
+                        <span>🐙 GitHub</span>
                     </a>
-                    <a href="https://linkedin.com/in/adambelfki" class="contact-link">
-                        <span>LinkedIn</span>
+                    <a href="https://linkedin.com/in/adambelfki" class="contact-link" target="_blank">
+                        <span>💼 LinkedIn</span>
                     </a>
-                    <a href="mailto:your@email.com" class="contact-link">
-                        <span>Email</span>
+                    <a href="https://x.com/placeholder" class="contact-link" target="_blank">
+                        <span>𝕏 X</span>
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=DSn_WtoAAAAJ" class="contact-link" target="_blank">
+                        <span>🎓 Google Scholar</span>
                     </a>
                 </div>
             </div>
