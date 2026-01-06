@@ -1,5 +1,8 @@
 ## Hi - I'm Adam! 👋
 
+I'm currently building infrastructure for studying the internal mechanisms of large AI models at [NDIF](https://ndif.us) and doing AI interpretability research at [Baulab](https://baulab.us).
+
+<!--
 Welcome to my Github! Here's a little bit about me:
 
   - 💻 I'm a software engineer with experience building distributed systems & deep neural models
@@ -11,9 +14,9 @@ Welcome to my Github! Here's a little bit about me:
   - 🗣 I'm fluent in Arabic, English, & French
   - 📫 Connect with me on LinkedIn or shoot me an email
 
-
-
   Let's chat!
+
+  --->
 
 <!---
 **AdamBelfki3/AdamBelfki3** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
