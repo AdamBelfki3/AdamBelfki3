@@ -1,6 +1,6 @@
 ## Hi - I'm Adam! 👋
 
-I'm currently building infrastructure for studying the internal mechanisms of large AI models at [NDIF](https://ndif.us) and doing AI interpretability research at [Baulab](https://baulab.us).
+I'm currently building infrastructure for studying the internal mechanisms of large AI models at [NDIF](https://ndif.us) and doing AI interpretability research at [Baulab](https://baulab.info).
 
 <!--
 Welcome to my Github! Here's a little bit about me:
